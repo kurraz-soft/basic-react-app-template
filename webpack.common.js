@@ -1,12 +1,12 @@
-const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
     entry: ['./src/app.js', './src/sass/style.sass'],
     output: {
         path: path.resolve(__dirname, 'public'),
-        filename: 'bundle.js'
+        filename: '[name].bundle.js'
     },
     module: {
         rules: [
@@ -29,15 +29,13 @@ const config = {
         ]
     },
     plugins: [
-        new webpack.optimize.UglifyJsPlugin(),
         new ExtractTextPlugin({
           filename: 'bundle.css'
-        })
+        }),
+        new HtmlWebpackPlugin({
+            title: 'Production',
+            template: './src/index.template.html'
+        }),
     ],
-    devServer: {
-      contentBase: path.join(__dirname, "public"),
-      compress: true,
-      port: 9000
-    }
 };
 module.exports = config;

@@ -3,7 +3,9 @@ import ReactDOM from "react-dom";
 
 class HelloMessage extends React.Component {
   render() {
-    return <div>Hello <div id="my">{this.props.name}</div></div>;
+    return <div>
+        Hello <div id="my">{this.props.name}</div>
+    </div>;
   }
 }
 

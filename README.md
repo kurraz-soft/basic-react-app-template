@@ -7,4 +7,4 @@ Contains:
 * sass
 * webpack-dev-server
 
-``npm run server`` - run dev server
+``npm start`` - run dev server
